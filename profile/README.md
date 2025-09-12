@@ -8,6 +8,9 @@
 3. RAG 기반 단위 기간별 트렌드 인사이트
 ```
 
+# 시연 영상
+[데모 영상](https://www.youtube.com/watch?v=O2XDuq-arEw)
+
 # 프로젝트 구성
 - [redfin_ui](https://github.com/team-spark-code/redfin_ui):
     - 설명: 개인 맞춤형 뉴스 피드 및 AI 산업 트렌드 대시보드

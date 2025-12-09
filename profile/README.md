@@ -9,7 +9,7 @@
 ```
 
 # 시연 영상
-[데모 영상](https://www.youtube.com/watch?v=O2XDuq-arEw)
+[데모 영상](https://www.youtube.com/watch?v=DE5MPjQ2H_I)
 
 # 프로젝트 구성
 - [redfin_ui](https://github.com/team-spark-code/redfin_ui):

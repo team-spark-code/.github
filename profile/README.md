@@ -1,46 +1,57 @@
 # AI 산업 RSS 뉴스 큐레이션 서비스 Redfin
 
-급변하는 AI 산업 동향을 최소한의 노력으로 확인할 수 있는 RSS 뉴스 추천 서비스입니다.
+AI 산업 동향을 최소한의 노력으로 파악할 수 있는 맞춤형 뉴스 추천 서비스입니다.<br>
+사용자는 RSS 기반의 다양한 뉴스 소스를 한 곳에서 확인하고,<br>
+LLM 기반 인사이트·요약 기능을 통해 보다 빠르게 트렌드를 이해할 수 있습니다.
 
+주요 기능은 아래와 같습니다.
 ```
 1. 맞춤형 RSS 뉴스 추천 
 2. 챗봇 기반 맞춤형 트렌드 인사이트
-3. RAG 기반 단위 기간별 트렌드 인사이트
+3. RAG 기반 뉴스 요약 및 검색
+```
+향후 확장 기능
+```
+단위 기간별 트렌드 인사이트 자동 생성 (RAG 기반 트렌드 리포트)
 ```
 
 # 시연 영상
 [데모 영상](https://www.youtube.com/watch?v=DE5MPjQ2H_I)
+위의 링크를 누르시면 시연 영상을 볼 수 있습니다.
 
 # 프로젝트 구성
-- [redfin_ui](https://github.com/team-spark-code/redfin_ui):
-    - 설명: 개인 맞춤형 뉴스 피드 및 AI 산업 트렌드 대시보드
-    - 스택: Next.js, Typescript, TailwindCSS
-- [redfin_core](https://github.com/team-spark-code/redfin_core):
-    - 설명: FE/BE 통합 리포. 인증 권한 관리 & 사용자 컨텐츠 관리 기능 포함
-    - 스택: Java, Spring Boot, MariaDB
-- [redfin_api](https://github.com/team-spark-code/redfin_api):
-    - 설명: 처리 완료된 정적 뉴스 데이터 제공하는 RESTful API
-    - 스택: Python, FastAPI
-- [redfin_scrap_api](https://github.com/team-spark-code/redfin_scrap_api):
-    - 설명: RSS 뉴스 소스 수집 및 기사 크롤링 기능 제공하는 RESTful API
-    - 스택: Python, FastAPI, reader, feedparser, scrapy
-- [redfin_label_api](https://github.com/team-spark-code/redfin_label_api):
-    - 설명: 키워드 추출, 태그/카테고리 분류를 제공하는 AI 텍스트 분석 기능 제공하는 RESTful API
-    - 스태: Python, FastAPI, Elasticsearch, HuggingFace, SentenceTransformer, Ollama
-- [redfin_rag](https://github.com/team-spark-code/redfin_rag):
-    - 설명: RSS 뉴스를 RAG 시스템으로 기사 요약, 사용자별 맞춤형 답변하는 기능을 제공하는 RESTful API
-    - 스택: Python, FastAPI, LangChain, ChromaDB
-- [redfin_infra](https://github.com/team-spark-code/redfin_infra): 
-    - 설명: 서비스에 필요한 MariaDB, MongoDB, Elasticsearch, Airflow, Tomcat 등 인프라 명세 및 소스
-    - 스택: Bash, Docker Compose, MongoDB, Tomcat
-- [redfin_airflow](https://github.com/team-spark-code/redfin_airflow):
-    - 설명: ETL 파이프라인 스케줄러로, 주기적으로 RSS 뉴스 기사를 수집 및 전처리하는 기능 제공
-    - 스택: Python, Airflow
+Frontend
+- [redfin_ui](https://github.com/team-spark-code/redfin_ui): Next.js 기반 개인 맞춤형 뉴스 피드 UI
+
+Backend / Core Services
+- [redfin_core](https://github.com/team-spark-code/redfin_core): Spring Boot 기반 인증/사용자 콘텐츠 관리 서비스
+- [redfin_api](https://github.com/team-spark-code/redfin_api): 전처리된 뉴스 데이터를 제공하는 FastAPI 서비스
+
+Data Collection / ETL
+- [redfin_scrap_api](https://github.com/team-spark-code/redfin_scrap_api): RSS 수집 및 기사 크롤링 API
+- [redfin_airflow](https://github.com/team-spark-code/redfin_airflow): ETL 스케줄링 파이프라인
+
+AI / NLP
+- [redfin_label_api](https://github.com/team-spark-code/redfin_label_api): 키워드 추출 및 카테고리 분류 모델 제공 API
+- [redfin_rag](https://github.com/team-spark-code/redfin_rag): RAG 기반 뉴스 요약/질의응답 서비스
+
+Infra
+- [redfin_infra](https://github.com/team-spark-code/redfin_infra): MariaDB, MongoDB, Elasticsearch, Airflow 등 인프라 구성
+
+기술 스택은 아래와 같습니다.
+```
+Frontend: Next.js, TypeScript, TailwindCSS  
+Backend: Spring Boot, FastAPI  
+
+AI/ML: HuggingFace, SentenceTransformer, LangChain, Ollama  
+
+Data/Infra: MariaDB, MongoDB, Elasticsearch, ChromaDB  
+ETL/DevOps: Airflow, Docker Compose, Bash  
+Scraping: feedparser, scrapy  
+```
 
 # 시스템 구성
-![](./RedFin.png)
-
-
+<img src="./RedFin.png" width="600">
 
 # 팀 소개
 - 우성민(프로젝트 총괄)
